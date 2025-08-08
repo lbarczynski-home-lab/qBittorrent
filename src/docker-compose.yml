@@ -1,0 +1,38 @@
+services:
+    qbittorrent-nox:
+        image: qbittorrentofficial/qbittorrent-nox:5.1.2-2
+        container_name: qbittorrent
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Europe/Warsaw
+            - QBT_WEBUI_PORT=${QBITTORRENT_WEB_UI_PORT}
+            - QBT_LEGAL_NOTICE="confirm"
+        volumes:
+            - ./config:/config
+            - ./cert:/cert
+            - /mnt/nas/torrent:/downloads
+        ports:
+            - ${QBITTORRENT_WEB_UI_PORT}:${QBITTORRENT_WEB_UI_PORT}
+            - ${QBITTORRENT_CONNECTION_PORT}:${QBITTORRENT_CONNECTION_PORT}
+            - ${QBITTORRENT_CONNECTION_PORT}:${QBITTORRENT_CONNECTION_PORT}/udp
+        labels:
+            - "traefik.enable=true"
+            - "traefik.http.routers.qbittorrent-router.rule=Host(`${QBITTORRENT_DOMAIN}`)"
+            - "traefik.http.routers.qbittorrent-router.entrypoints=websecure"
+            - "traefik.http.routers.qbittorrent-router.tls=true"
+            - "traefik.http.routers.qbittorrent-router.service=qbittorrent"
+            - "traefik.http.services.qbittorrent.loadbalancer.server.url=${QBITTORRENT_SCHEMA}://${QBITTORRENT_HOST}:${QBITTORRENT_WEB_UI_PORT}"
+        healthcheck:
+            test:
+                [
+                    "CMD",
+                    "curl",
+                    "-fk",
+                    "https://localhost:${QBITTORRENT_WEB_UI_PORT}",
+                ]
+            interval: 10s
+            timeout: 5s
+            retries: 5
+            start_period: 5s
+        restart: unless-stopped

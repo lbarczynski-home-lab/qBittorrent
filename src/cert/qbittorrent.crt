@@ -1,0 +1,103 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            69:08:06:c3:e3:41:17:72:7b:a8:31:89:22:00:19:a5:3c:74:a6:8d
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=PL, ST=lodzkie, L=Lodz, O=xbhl online, OU=Home Lab Certification Authority, CN=xbhl.intranet
+        Validity
+            Not Before: Feb 16 09:26:11 2025 GMT
+            Not After : May 22 09:26:11 2027 GMT
+        Subject: C=PL, ST=lodzkie, L=Lodz, O=xbhl online, OU=Home Lab Certification Authority, CN=qBittorrent
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:97:de:b3:a8:0b:21:d4:98:72:d3:ec:5d:18:c1:
+                    e1:7a:06:71:7e:6c:30:0f:ba:c8:44:80:06:db:48:
+                    20:dd:9a:f5:5e:4e:44:1c:8d:7d:72:2e:96:89:5e:
+                    44:c5:5b:df:f5:87:48:1b:68:94:fc:93:d0:7a:5c:
+                    81:b8:cb:8c:ac:fc:da:3a:f7:c5:d4:92:20:be:97:
+                    1e:97:19:1d:27:0c:99:2e:4b:3d:98:80:6b:cc:98:
+                    db:2f:e0:7a:9f:16:b3:c5:05:de:b7:83:d8:65:ac:
+                    d1:f9:ab:6a:47:a7:af:db:72:8f:0f:93:b3:7f:b5:
+                    eb:51:7c:aa:24:d1:42:04:f9:25:b1:eb:f1:0a:1e:
+                    4e:fb:08:b2:2a:23:54:8f:04:c2:6c:19:19:6f:05:
+                    48:72:7b:10:07:d1:0e:71:ec:9d:2b:25:a1:6b:9e:
+                    65:2d:45:49:11:43:d7:36:65:21:fc:fb:d2:b2:97:
+                    56:b0:e1:77:f6:8e:dc:27:64:11:97:8b:44:be:bb:
+                    2d:5a:9c:b6:70:43:bb:92:62:27:cd:c7:10:f5:84:
+                    4e:54:6f:c8:d4:52:62:e4:02:bd:83:50:e4:1e:72:
+                    7b:19:e0:46:10:9d:73:ea:0d:ae:75:1d:4f:26:e2:
+                    32:83:e4:17:58:65:ec:e1:7f:11:4a:5f:5a:49:6c:
+                    76:e3
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Subject Alternative Name: 
+                DNS:pve-01-media-01.lab, DNS:www.pve-01-media-01.lab, DNS:media.vm.xbhl.intranet, DNS:www.media.vm.xbhl.intranet, IP Address:10.100.195.113
+            X509v3 Subject Key Identifier: 
+                C9:8B:D4:63:AA:8B:9B:71:99:CB:71:6F:D9:B6:B0:04:CA:60:E4:2D
+            X509v3 Authority Key Identifier: 
+                DC:72:8D:C0:FF:52:42:49:B9:8E:6D:EE:4A:C1:2D:C4:56:06:5E:64
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        79:3d:8c:23:58:cf:68:2b:2d:e0:04:eb:4e:af:1c:08:7b:5e:
+        3d:91:c5:94:ad:29:fb:e5:7a:1a:cb:e2:ea:3f:26:2f:e2:96:
+        97:e9:8f:d6:a2:bd:3f:77:48:7c:b8:00:ed:5b:06:c1:12:d2:
+        6a:a0:c3:36:59:9f:47:c1:2a:3e:07:30:fc:75:49:ef:0d:bb:
+        da:e2:33:8e:cb:59:b5:aa:36:a9:c6:5f:ad:84:84:10:cf:ab:
+        e9:d7:32:99:2e:cc:88:c4:eb:4b:01:78:ec:06:64:2b:0d:ca:
+        09:da:43:0c:5a:d0:ef:6e:ac:2f:c4:52:86:05:35:94:a7:85:
+        52:7c:4f:b4:f9:44:ac:6a:a1:87:86:b9:f8:6d:71:8d:23:ee:
+        86:7e:c0:23:18:27:17:2f:1e:24:f8:de:9c:6e:72:68:7e:74:
+        09:44:2b:5d:3c:46:6e:03:6c:1e:b7:84:12:04:7e:76:8a:41:
+        c2:14:c4:c8:18:ef:5b:df:f8:3c:72:f1:2b:4c:5f:5c:d8:39:
+        08:57:3c:c5:17:e3:3b:10:bd:63:62:37:df:f4:44:12:ef:bf:
+        96:36:65:7b:03:11:01:e8:68:0d:3c:39:5c:ce:1b:05:22:ec:
+        7e:73:41:67:8e:9e:ad:bd:46:f0:c9:00:7a:12:f7:00:63:dd:
+        79:a8:15:23:cd:49:d2:5b:fc:2b:b4:1f:02:48:e8:8e:9f:e9:
+        b1:78:46:47:27:c6:50:1d:cd:20:2a:d1:c5:14:f6:24:5c:5a:
+        72:9a:41:ef:06:8b:19:5a:27:55:3f:c8:12:e2:e6:8a:d0:8e:
+        b7:50:69:48:92:1d:cf:c5:6c:89:b4:c5:fb:33:6a:31:eb:f8:
+        46:75:cb:87:f9:b2:7b:71:fa:57:2c:6e:e9:db:a3:7e:8d:ee:
+        af:99:33:b1:39:6c:67:27:8b:de:62:9d:20:c4:69:1c:d4:43:
+        ea:fe:97:56:19:e4:32:bf:aa:a0:ce:18:df:78:a6:4e:f2:93:
+        76:08:76:6d:cc:99:43:fa:06:64:9d:aa:02:23:dc:ef:e2:3d:
+        4f:e9:e1:5a:30:48:02:9c:42:ea:60:c9:1e:7e:93:e1:61:9f:
+        69:35:6c:b9:b5:b7:8e:a8:b9:08:22:24:a5:ca:da:a8:a4:50:
+        e5:a7:3c:ee:d6:09:fd:09:17:04:ea:e7:74:fd:67:b7:f8:23:
+        59:cb:1c:a8:7f:99:c7:e1:b2:56:8b:ab:a6:82:b7:00:f1:c9:
+        ad:4d:27:06:da:0d:97:7e:0e:2f:34:35:ec:0d:e6:be:4c:aa:
+        af:3e:37:f2:51:fb:c3:99:0b:94:94:4c:33:d7:8a:f9:56:d3:
+        41:de:0b:50:07:25:14:02
+-----BEGIN CERTIFICATE-----
+MIIFUzCCAzugAwIBAgIUaQgGw+NBF3J7qDGJIgAZpTx0po0wDQYJKoZIhvcNAQEL
+BQAwgYcxCzAJBgNVBAYTAlBMMRAwDgYDVQQIDAdsb2R6a2llMQ0wCwYDVQQHDARM
+b2R6MRQwEgYDVQQKDAt4YmhsIG9ubGluZTEpMCcGA1UECwwgSG9tZSBMYWIgQ2Vy
+dGlmaWNhdGlvbiBBdXRob3JpdHkxFjAUBgNVBAMMDXhiaGwuaW50cmFuZXQwHhcN
+MjUwMjE2MDkyNjExWhcNMjcwNTIyMDkyNjExWjCBhTELMAkGA1UEBhMCUEwxEDAO
+BgNVBAgMB2xvZHpraWUxDTALBgNVBAcMBExvZHoxFDASBgNVBAoMC3hiaGwgb25s
+aW5lMSkwJwYDVQQLDCBIb21lIExhYiBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eTEU
+MBIGA1UEAwwLcUJpdHRvcnJlbnQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEK
+AoIBAQCX3rOoCyHUmHLT7F0YweF6BnF+bDAPushEgAbbSCDdmvVeTkQcjX1yLpaJ
+XkTFW9/1h0gbaJT8k9B6XIG4y4ys/No698XUkiC+lx6XGR0nDJkuSz2YgGvMmNsv
+4HqfFrPFBd63g9hlrNH5q2pHp6/bco8Pk7N/tetRfKok0UIE+SWx6/EKHk77CLIq
+I1SPBMJsGRlvBUhyexAH0Q5x7J0rJaFrnmUtRUkRQ9c2ZSH8+9Kyl1aw4Xf2jtwn
+ZBGXi0S+uy1anLZwQ7uSYifNxxD1hE5Ub8jUUmLkAr2DUOQecnsZ4EYQnXPqDa51
+HU8m4jKD5BdYZezhfxFKX1pJbHbjAgMBAAGjgbYwgbMwcQYDVR0RBGowaIITcHZl
+LTAxLW1lZGlhLTAxLmxhYoIXd3d3LnB2ZS0wMS1tZWRpYS0wMS5sYWKCFm1lZGlh
+LnZtLnhiaGwuaW50cmFuZXSCGnd3dy5tZWRpYS52bS54YmhsLmludHJhbmV0hwQK
+ZMNxMB0GA1UdDgQWBBTJi9RjqoubcZnLcW/ZtrAEymDkLTAfBgNVHSMEGDAWgBTc
+co3A/1JCSbmObe5KwS3EVgZeZDANBgkqhkiG9w0BAQsFAAOCAgEAeT2MI1jPaCst
+4ATrTq8cCHtePZHFlK0p++V6Gsvi6j8mL+KWl+mP1qK9P3dIfLgA7VsGwRLSaqDD
+NlmfR8EqPgcw/HVJ7w272uIzjstZtao2qcZfrYSEEM+r6dcymS7MiMTrSwF47AZk
+Kw3KCdpDDFrQ726sL8RShgU1lKeFUnxPtPlErGqhh4a5+G1xjSPuhn7AIxgnFy8e
+JPjenG5yaH50CUQrXTxGbgNsHreEEgR+dopBwhTEyBjvW9/4PHLxK0xfXNg5CFc8
+xRfjOxC9Y2I33/REEu+/ljZlewMRAehoDTw5XM4bBSLsfnNBZ46erb1G8MkAehL3
+AGPdeagVI81J0lv8K7QfAkjojp/psXhGRyfGUB3NICrRxRT2JFxacppB7waLGVon
+VT/IEuLmitCOt1BpSJIdz8VsibTF+zNqMev4RnXLh/mye3H6Vyxu6dujfo3ur5kz
+sTlsZyeL3mKdIMRpHNRD6v6XVhnkMr+qoM4Y33imTvKTdgh2bcyZQ/oGZJ2qAiPc
+7+I9T+nhWjBIApxC6mDJHn6T4WGfaTVsubW3jqi5CCIkpcraqKRQ5ac87tYJ/QkX
+BOrndP1nt/gjWcscqH+Zx+GyVourpoK3APHJrU0nBtoNl34OLzQ17A3mvkyqrz43
+8lH7w5kLlJRMM9eK+VbTQd4LUAclFAI=
+-----END CERTIFICATE-----
