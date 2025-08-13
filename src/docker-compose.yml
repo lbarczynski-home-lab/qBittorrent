@@ -11,7 +11,6 @@ services:
             - QBT_TORRENTING_PORT=${QBITTORRENT_CONNECTION_PORT:?err}
         volumes:
             - config:/config
-            - ./cert:/cert
             - ${REMOTE_DIR_PATH:?err}:/downloads
         ports:
             - ${QBITTORRENT_WEB_UI_PORT:?err}:${QBITTORRENT_WEB_UI_PORT:?err}/tcp
@@ -25,10 +24,10 @@ services:
             - "traefik.http.routers.qbittorrent-router.service=qbittorrent"
             - "traefik.http.services.qbittorrent.loadbalancer.server.url=${QBITTORRENT_SCHEMA:?err}://${QBITTORRENT_HOST:?err}:${QBITTORRENT_WEB_UI_PORT:?err}"
         healthcheck:
-            test: curl -fk http://127.0.0.1:${QBITTORRENT_WEB_UI_PORT:?err}
-            interval: 5s
+            test: wget --quiet --spider --no-check-certificate ${QBITTORRENT_SCHEMA:?err}://localhost:${QBITTORRENT_WEB_UI_PORT:?err} || exit 1
+            interval: 10s
             timeout: 5s
-            retries: 5
+            retries: 10
             start_period: 5s
         restart: unless-stopped
 

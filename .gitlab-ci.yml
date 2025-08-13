@@ -10,4 +10,5 @@ include:
           cloudflare-dns-entry-name: qbittorrent.intranet.xbhl.online
           cloudflare-zone-id: $CLOUDFLARE_ZONE_ID
           cloudflare-dns-api-token: $CLOUDFLARE_DNS_API_TOKEN
+          container-healthcheck-delay: 30
           delete-existing-container-files: true
