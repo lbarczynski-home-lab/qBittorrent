@@ -10,8 +10,9 @@ services:
             - QBT_WEBUI_PORT=${QBITTORRENT_WEB_UI_PORT:?err}
             - QBT_TORRENTING_PORT=${QBITTORRENT_CONNECTION_PORT:?err}
         volumes:
+            - scripts:/scripts
             - config:/config
-            - ${REMOTE_DIR_PATH:?err}:/downloads
+            - downloads:/downloads
         ports:
             - ${QBITTORRENT_WEB_UI_PORT:?err}:${QBITTORRENT_WEB_UI_PORT:?err}/tcp
             - ${QBITTORRENT_CONNECTION_PORT:?err}:${QBITTORRENT_CONNECTION_PORT:?err}/tcp
@@ -24,12 +25,27 @@ services:
             - "traefik.http.routers.qbittorrent-router.service=qbittorrent"
             - "traefik.http.services.qbittorrent.loadbalancer.server.url=${QBITTORRENT_SCHEMA:?err}://${QBITTORRENT_HOST:?err}:${QBITTORRENT_WEB_UI_PORT:?err}"
         healthcheck:
-            test: wget --quiet --spider --no-check-certificate ${QBITTORRENT_SCHEMA:?err}://localhost:${QBITTORRENT_WEB_UI_PORT:?err} || exit 1
+            test: /scripts/healthcheck.sh /downloads ${QBITTORRENT_SCHEMA:?err}://localhost:${QBITTORRENT_WEB_UI_PORT:?err}
             interval: 10s
             timeout: 5s
-            retries: 10
-            start_period: 5s
+            retries: 5
+            start_period: 10s
         restart: unless-stopped
 
 volumes:
+    scripts:
+        driver: local
+        driver_opts:
+            type: "none"
+            o: "bind"
+            device: "./scripts"
+
     config:
+        driver: local
+
+    downloads:
+        driver: local
+        driver_opts:
+            type: nfs
+            o: addr=${REMOTE_DOWNLOADS_DIR_HOSTNAME:?err},rw,soft,timeo=100,nolock
+            device: ${REMOTE_DOWNLOADS_DIR_HOSTNAME:?err}:${REMOTE_DOWNLOADS_DIR_PATH:?err}
