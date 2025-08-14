@@ -30,5 +30,5 @@ if ! rm $TEST_FILE_PATH >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "NFS is accessible"
+echo "Service is healthy!"
 exit 0

@@ -12,3 +12,7 @@ include:
           cloudflare-dns-api-token: $CLOUDFLARE_DNS_API_TOKEN
           container-healthcheck-delay: 30
           delete-existing-container-files: true
+
+deploy:qBittorrent:deploy-files:
+    after_script:
+        - ssh $VM_SSH_USERNAME@$VM_HOST "chmod +x $CONTAINER_LOCATION/scripts/healthcheck.sh"
