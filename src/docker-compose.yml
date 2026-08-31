@@ -24,6 +24,9 @@ services:
             - "traefik.http.routers.qbittorrent-router.tls=true"
             - "traefik.http.routers.qbittorrent-router.service=qbittorrent"
             - "traefik.http.services.qbittorrent.loadbalancer.server.url=${QBITTORRENT_SCHEMA:?err}://${QBITTORRENT_HOST:?err}:${QBITTORRENT_WEB_UI_PORT:?err}"
+            - 'wud.watch=true'
+            - 'wud.tag.include=^\d+\.\d+\.\d+-\d+$$'
+            - "wud.link.template=https://github.com/qbittorrent/qBittorrent/releases/tag/release-$${major}.$${minor}.$${patch}"
         healthcheck:
             test: /scripts/healthcheck.sh /downloads ${QBITTORRENT_SCHEMA:?err}://localhost:${QBITTORRENT_WEB_UI_PORT:?err}
             interval: 10s
