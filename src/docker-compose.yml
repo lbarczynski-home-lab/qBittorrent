@@ -1,38 +1,41 @@
 services:
     qbittorrent-nox:
-        image: ghcr.io/qbittorrent/docker-qbittorrent-nox:${QBITTORRENT_APP_VERSION:?err}
+        image: ghcr.io/qbittorrent/docker-qbittorrent-nox:5.2.3-1
         container_name: qbittorrent
         environment:
-            - PUID=${APP_PUID:?err}
-            - PGID=${APP_PGID:?err}
-            - TZ=${TIME_ZONE:?err}
+            - PUID=1000
+            - PGID=988
+            - TZ=Europe/Warsaw
             - QBT_LEGAL_NOTICE="confirm"
-            - QBT_WEBUI_PORT=${QBITTORRENT_WEB_UI_PORT:?err}
-            - QBT_TORRENTING_PORT=${QBITTORRENT_CONNECTION_PORT:?err}
+            - QBT_WEBUI_PORT=10002
+            - QBT_TORRENTING_PORT=50466
         volumes:
             - scripts:/scripts
             - config:/config
             - downloads:/downloads
         ports:
-            - ${QBITTORRENT_WEB_UI_PORT:?err}:${QBITTORRENT_WEB_UI_PORT:?err}/tcp
-            - ${QBITTORRENT_CONNECTION_PORT:?err}:${QBITTORRENT_CONNECTION_PORT:?err}/tcp
-            - ${QBITTORRENT_CONNECTION_PORT:?err}:${QBITTORRENT_CONNECTION_PORT:?err}/udp
+            - "10002:10002/tcp"
+            - "50466:50466/tcp"
+            - "50466:50466/udp"
         labels:
             - "traefik.enable=true"
-            - "traefik.http.routers.qbittorrent-router.rule=Host(`${QBITTORRENT_DOMAIN:?err}`)"
+            - "traefik.http.routers.qbittorrent-router.rule=Host(`qbittorrent.intranet.xbhl.online`)"
             - "traefik.http.routers.qbittorrent-router.entrypoints=websecure"
             - "traefik.http.routers.qbittorrent-router.tls=true"
             - "traefik.http.routers.qbittorrent-router.service=qbittorrent"
-            - "traefik.http.services.qbittorrent.loadbalancer.server.url=${QBITTORRENT_SCHEMA:?err}://${QBITTORRENT_HOST:?err}:${QBITTORRENT_WEB_UI_PORT:?err}"
+            - "traefik.http.services.qbittorrent.loadbalancer.server.port=10002"
+            - "traefik.docker.network=proxy"
             - 'wud.watch=true'
             - 'wud.tag.include=^\d+\.\d+\.\d+-\d+$$'
             - "wud.link.template=https://github.com/qbittorrent/qBittorrent/releases/tag/release-$${major}.$${minor}.$${patch}"
         healthcheck:
-            test: /scripts/healthcheck.sh /downloads ${QBITTORRENT_SCHEMA:?err}://localhost:${QBITTORRENT_WEB_UI_PORT:?err}
+            test: /bin/sh /scripts/healthcheck.sh /downloads http://127.0.0.1:10002
             interval: 10s
             timeout: 5s
             retries: 5
             start_period: 10s
+        networks:
+            - proxy
         restart: unless-stopped
 
 volumes:
@@ -50,5 +53,9 @@ volumes:
         driver: local
         driver_opts:
             type: nfs
-            o: addr=${REMOTE_DOWNLOADS_DIR_HOSTNAME:?err},rw,soft,timeo=100,nolock
-            device: ${REMOTE_DOWNLOADS_DIR_HOSTNAME:?err}:${REMOTE_DOWNLOADS_DIR_PATH:?err}
+            o: addr=nas.srv.xbhl.intranet,rw,soft,timeo=100,nolock
+            device: nas.srv.xbhl.intranet:/share/NFSv=4/Media/Torrent
+
+networks:
+    proxy:
+        external: true

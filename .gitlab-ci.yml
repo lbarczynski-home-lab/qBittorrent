@@ -1,5 +1,5 @@
 include:
-    - component: $CI_SERVER_FQDN/home-lab/automations/docker-compose-service-deployment@v1.1.0
+    - component: $CI_SERVER_FQDN/home-lab/automations/docker-compose-service-deployment@v2.0.5
       inputs:
           vm-hostname: media.vm.xbhl.intranet
           vm-ssh-username: $SSH_USER
@@ -7,11 +7,8 @@ include:
           service-name: qBittorrent
           container-name: qbittorrent
           container-location: /opt/containers/qbittorrent
+          cloudflare-dns-strategy: "direct"
           cloudflare-dns-entry-name: qbittorrent.intranet.xbhl.online
           cloudflare-zone-id: $CLOUDFLARE_ZONE_ID
           cloudflare-dns-api-token: $CLOUDFLARE_DNS_API_TOKEN
           delete-existing-container-files: true
-
-deploy:qBittorrent:deploy-files:
-    after_script:
-        - ssh $VM_SSH_USERNAME@$VM_HOST "chmod +x $CONTAINER_LOCATION/scripts/healthcheck.sh"
